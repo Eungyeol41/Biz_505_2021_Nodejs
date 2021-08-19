@@ -29,5 +29,8 @@ for (let i = 0; i < 배열2.length; i++) {
 }
 console.log(배열3);
 
+// ES6+에서 등장한 배열 관련 함수들 중 한 가지
+// 전통적인 for를 이용한 배열의 filtering
+// for(int 요소 : 배열){   }
 let 배열짝수 = 배열2.filter((요소) => 요소 % 2 == 0);
 console.log(배열짝수);
