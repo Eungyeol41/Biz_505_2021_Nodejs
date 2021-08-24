@@ -1,0 +1,51 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+header,
+table,
+div.btn_box,
+footer {
+  width: 80%;
+  margin: 10px auto;
+}
+
+header {
+  background-color: darkseagreen;
+  text-align: center;
+  padding: 3px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr {
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+th,
+td {
+  white-space: inherit;
+  text-align: center;
+}
+
+div.btn_box {
+  text-align: right;
+}
+
+footer {
+  text-align: center;
+  background-color: darkkhaki;
+  color: white;
+  padding: 10px;
+}
