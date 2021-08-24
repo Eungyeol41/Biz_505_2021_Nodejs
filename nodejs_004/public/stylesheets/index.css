@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+table {
+  border: 0;
+  width: 90%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 10px auto;
+}
+
+tr {
+  border-top: 1px solid lightseagreen;
+}
+
+tr:last-child {
+  border-bottom: 1px solid lightseagreen;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #ccc;
+}
+
+tr:nth-of-type(even) {
+  background-color: #eee;
+}
+
+tr:hover {
+  background-color: #aaa;
+}
+
+tr:hover:not(.first) {
+  background-color: none;
+}
+
+td,
+th {
+  border-right: 1px solid lightseagreen;
+  padding: 8px 12px;
+}
+
+td:last-child,
+th:last-child {
+  border: none;
+}
+
+button {
+  width: 10%;
+  margin: 5%;
+  padding: 3px;
+}

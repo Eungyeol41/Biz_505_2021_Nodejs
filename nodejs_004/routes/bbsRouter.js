@@ -1,5 +1,4 @@
 const express = require("express");
-const { UPDATE } = require("sequelize/types/lib/query-types");
 const router = express.Router();
 
 const { tbl_bbs } = require("../models/index");
@@ -22,9 +21,5 @@ router.get("/update", (req, res) => {
     res.render("update", { BBS: result });
   });
 });
-// router.post("/update", (req, res) => {
-//   const b_id = req.query.b_id;
-//   req.body.b_id = b_id;
-// });
 
 module.exports = router;
