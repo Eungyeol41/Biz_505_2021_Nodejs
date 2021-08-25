@@ -74,6 +74,7 @@ router.post("/reply", (req, res) => {
   });
 });
 
+
 /**
  * HTML에서 서버로 데이터를 보낼 때 받는 방법
  *
@@ -104,5 +105,12 @@ router.get("/reply/delete/:rid", (req, res) => {
     });
   });
 });
+
+router.get("/reply/update/:rid", (req, res)=>{
+    const rid = req.params.rid;
+    tbl_reply.findByPk(rid).then((result)=>{
+        // res.render
+    })
+})
 
 module.exports = router;

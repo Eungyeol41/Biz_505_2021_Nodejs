@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/form.css" />
     <title>Detail</title>
@@ -35,14 +36,7 @@
         margin: 40px auto;
         border-top: 3px double khaki;
       }
-      section.reply input#r_writer {
-        width: 20%;
-      }
-
-      section.reply input#r_content {
-        width: 70%;
-      }
-
+    
       button.btn_reply {
         width: 15%;
       }
@@ -70,8 +64,12 @@
         flex: 1;
       }
 
-      article.reply div:nth-of-type(2), input#r_content {
-        flex: 4;
+      article.reply div:nth-of-type(2) {
+        flex: 3.5;
+      }
+
+      input#r_content {
+          flex: 4;
       }
 
 </style>
@@ -110,6 +108,7 @@
         <article class="reply">
           <div class="r_writer"><%- vo.r_writer %></div>
           <div class="r_content"><%- vo.r_content %></div>
+          <div class="reply_update"><i class="fas fa-pen"></i></div>
           <div class="reply_delete" data-rid="<%- vo.id %>">X</div>
         </article>
       <% }) %>
@@ -148,6 +147,14 @@
           document.location.href = "/bbs/reply/delete/" + rid;
         }
       }
+
+      if(click_tag.tagName === "I") {
+        let rid = click_tag.dataset.rid;
+        if(confirm("댓글을 수정할까요?")) {
+          document.location.href = "/bbs/reply/update/" + rid;
+        }
+      }
+
     })
   </script>
 </html>
