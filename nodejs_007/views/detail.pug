@@ -1,0 +1,143 @@
+extends layout
+
+block content
+
+	style.
+		section.bbs_detail, section.reply {
+			width: 80%;
+			margin: 10px auto;
+		}
+
+		section.bbs_detail span {
+			display: inline-block;
+			padding: 8px;
+			margin: 5px;
+		}
+
+		section.bbs_detail span.title {
+			width: 20%;
+			text-align: right;
+			vertical-align: top;
+		}
+
+		section.bbs_detail span.data {
+			width: 60%;
+			border: 1px solid darkkhaki;
+		}
+
+		hr {
+			width: 75%;
+			margin: 40px auto;
+			border-top: 3px double khaki;
+		}
+		section.reply input#r_writer {
+			width: 20%;
+		}
+
+		section.reply input#r_content {
+			width: 70%;
+		}
+
+		button.btn_reply {
+			width: 15%;
+		}
+
+		article.reply, div.reply {
+			width: 90%;
+			display: flex;
+			margin: 0 auto;
+		}
+
+		article.reply div {
+			padding: 5px;
+			margin: 5px;
+		}
+
+		article.reply div.r_writer {
+			text-align: center;
+		}
+
+		article.reply div.r_content {
+			border: 0.5px dotted darkkhaki;
+		}
+
+		article.reply div:nth-of-type(1), input#r_writer {
+			flex: 1;
+		}
+
+		article.reply div:nth-of-type(2), input#r_content {
+			flex: 4;
+		}
+
+
+	section.bbs_detail
+		div
+			span.title 작성자
+			span.data= BBS.b_writer
+
+		div
+			span.title 작성일자
+			span.data= BBS.b_date
+
+		div
+			span.title 작성시각
+			span.data= BBS.b_time
+
+		div
+			span.title 제목
+			span.data #{BBS.b_subject}
+
+		div
+			span.title 내용
+			span.data !{BBS.b_text}
+
+		div.btn_box
+			button.btn.btn_home 홈으로
+			button.btn.btn_update 수정
+			button.btn.btn_delete 삭제
+
+		hr
+
+	section.reply
+		each vo, index in BBS.tbl_replies
+			article.reply
+				div.r_writer= vo.r_writer
+				div.r_content= vo.r_content
+				div.reply_delete(data-rid= vo.id) X
+
+	form(method="POST", action="/bbs/reply")
+		input(type="hidden", name="r_postId", value= BBS.b_id)
+		div.reply
+			input#r_writer(name="r_writer", placeholder="작성자")
+			input#r_content(name="r_content", placeholder="댓글을 입력해주세욤")
+
+		div.btn_box
+			button.btn_reply 댓글 저장
+
+
+	script.
+		document.querySelector("div.btn_box").addEventListener("click", (e) => {
+			const btn = e.target
+			const className = btn.className
+			let url = "/"
+
+			if (className.includes("btn_update")) {
+				url += `bbs/update?b_id=#{BBS.b_id}`
+			} else if (className.includes("btn_delete")) {
+				if(!confirm("본문을 삭제할까요?")) {
+					return false
+				}
+				url += `bbs/delete?b_id=#{BBS.b_id}`
+			}
+			document.location.href = url
+		})
+
+		document.querySelector("section.reply").addEventListener("click", (e) => {
+			const click_tag = e.target
+			if(click_tag.tagName === "DIV" && click_tag.className.includes("reply_delete")) {
+				let rid = click_tag.dataset.rid
+				if(confirm("댓글을 삭제할까요?")) {
+					document.location.href = "/bbs/reply/delete/" + rid
+				}
+			}
+		})
