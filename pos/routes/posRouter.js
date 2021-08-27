@@ -20,9 +20,11 @@ router.get("/list", (req, res) => {
   const p_code = req.query.p_code;
   console.log("p_code", p_code);
 
-  tbl_products.findOne({ where: { p_code }, include: { models: tbl_products } }).then((result) => {
-    res.render("order", { BBS: result });
-  });
+  res.render("order");
+
+  //   tbl_products.findOne({ where: { p_code }, include: { models: tbl_products } }).then((result) => {
+  //     res.render("order", { BBS: result });
+  //   });
 });
 
 router.get("/pay", (req, res) => {
