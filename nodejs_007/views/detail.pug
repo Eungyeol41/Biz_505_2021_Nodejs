@@ -30,22 +30,21 @@ block content
 			margin: 40px auto;
 			border-top: 3px double khaki;
 		}
-		section.reply input#r_writer {
-			width: 20%;
-		}
-
-		section.reply input#r_content {
-			width: 70%;
-		}
-
+		
 		button.btn_reply {
 			width: 15%;
 		}
 
-		article.reply, div.reply {
-			width: 90%;
+		article.reply {
+			width: 70%;
 			display: flex;
 			margin: 0 auto;
+		}
+
+		div.reply_write {
+			width: 60%;
+			margin: 0 auto;
+			display: flex;
 		}
 
 		article.reply div {
@@ -107,7 +106,7 @@ block content
 
 	form(method="POST", action="/bbs/reply")
 		input(type="hidden", name="r_postId", value= BBS.b_id)
-		div.reply
+		div.reply_write
 			input#r_writer(name="r_writer", placeholder="작성자")
 			input#r_content(name="r_content", placeholder="댓글을 입력해주세욤")
 
