@@ -1,0 +1,36 @@
+extends layout
+
+block content
+	h2 김밥나라 테이블
+	table.gimbap
+		tr.gimbap
+			td.gimbap 01
+			td.gimbap 02
+			td.gimbap 03
+			td.gimbap 04
+		tr.gimbap
+			td.gimbap 05
+			td.gimbap 06
+			td.gimbap 07
+			td.gimbap 08
+		tr.gimbap
+			td.gimbap 09
+			td.gimbap 10
+			td.gimbap 11
+			td.gimbap 12
+	
+	button.list 상품 주문 리스트
+	
+	script.
+		document.querySelector("table.gimbap").addEventListener("click", (e)=>{
+			const td = e.target
+
+			if(td.tagName === "TD") {
+				const o_table = td.innerText
+				document.location.href=`order/detail?o_table=${o_table}`
+			}
+		})
+
+		document.querySelector("button.list").addEventListener("click", (e)=>{
+			document.location.href = `/order/list`
+		})

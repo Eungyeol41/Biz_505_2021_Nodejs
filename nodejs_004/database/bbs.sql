@@ -15,3 +15,5 @@ DELETE FROM tbl_bbs WHERE b_id = 11;
 
 DESC tbl_replies;
 DROP TABLE tbl_replies;
+
+SELECT * FROM tbl_replies;

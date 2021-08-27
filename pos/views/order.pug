@@ -1,0 +1,46 @@
+extends layout
+
+block content
+	style.
+		div.list {
+			display: flex;
+		}
+
+		div.menu {
+			margin: 0 auto;
+		}
+
+		table, tr, th, td {
+			border: 1px solid mediumaquamarine;
+			border-collapse: collapse;
+			text-align: center;
+			padding: 10px;
+		}
+
+		button {
+			padding: 5px 30px;
+		}
+
+	h2 상품 주문 리스트
+	div.list
+			
+		div.menu
+			h3 여기에 table 번호가 들어가야 한다.!
+			div
+				table
+					tr
+						th 메뉴
+						th 단가
+						th 수량
+						th 금액
+					
+					tr
+						td= 메뉴
+						td= 단가
+						td= 수량
+						td= 금액
+					
+					tr
+						td(colspan="2") 합계
+						td(colspan="2") 금액
+				button 결제하기

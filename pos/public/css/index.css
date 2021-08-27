@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: lightpink;
+  width: 70%;
+}
+
+table.gimbap {
+  padding: 5px;
+  margin: 0 auto;
+  border-spacing: 100px;
+}
+
+tr.gimbap,
+td.gimbap {
+  border: 1px solid plum;
+}
+
+td.gimbap {
+  padding: 50px;
+  margin: 10px;
+}

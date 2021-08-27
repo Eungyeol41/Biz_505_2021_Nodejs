@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	h2 상품 주문 리스트
+	div.list
+		div.menu
+
+			//- h3 #{BBS.o_table}
+			table
+				tr
+					th 메뉴
+					th 단가
+					th 수량
+					th 금액
+				tr
+					td 메뉴
+					td 단가
+					td 수량
+					td 금액
+				
+				tr
+					td(colspan="2") 합계
+					td(colspan="2") 금액
+			button.pay 결제하기
+	
+	button.list 상품 주문 리스트
+
+	script.
+		document.querySelector("button.pay").addEventListener("click", (e)=>{
+			document.location.href = "/order/pay"
+		})
+		document.querySelector("button.list").addEventListener("click", (e)=>{
+			const id = e.target.dataset.id
+			document.location.href = "/order/list"
+		})
