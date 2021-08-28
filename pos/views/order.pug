@@ -2,7 +2,7 @@ extends layout
 
 block content
 	style.
-		div.list {
+		div.total {
 			display: flex;
 		}
 
@@ -22,10 +22,9 @@ block content
 		}
 
 	h2 상품 주문 리스트
-	div.list
-			
+	div.total
 		div.menu
-			h3 여기에 table 번호가 들어가야 한다.!
+			h3 #{o_table}
 			div
 				table
 					tr
@@ -35,12 +34,21 @@ block content
 						th 금액
 					
 					tr
-						td= 메뉴
-						td= 단가
-						td= 수량
-						td= 금액
+						td ORDER.o_pcode
+						td= ORDER.o_price
+						td= ORDER.o_count
+						td= ORDER.o_price * ORDER.o_count
 					
 					tr
 						td(colspan="2") 합계
-						td(colspan="2") 금액
-				button 결제하기
+						td(colspan="2")= ORDER.o_total
+				button.pay 결제하기
+		
+		div.list
+			button.list PRODUCT.p_name
+
+	
+	script.
+		document.querySelector("button.pay").addEventListener("click", (e)=>{
+			document.location.href="/order/pay"
+		})
