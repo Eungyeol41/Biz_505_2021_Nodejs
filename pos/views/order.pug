@@ -4,6 +4,8 @@ block content
 	style.
 		div.total {
 			display: flex;
+			width: 70%;
+			margin: 0 auto;
 		}
 
 		div.menu, div.list {
@@ -28,7 +30,7 @@ block content
 		}
 
 		div.list {
-			width: 30%
+			width: 30%;
 		}
 
 	h2 상품 주문 리스트
@@ -38,7 +40,7 @@ block content
 			h3 고객 ID : #{o_buyer}
 			
 			div.menu_list
-				table#menu
+				table.menu_table
 					tr.menu_header
 						th 메뉴
 						th 단가
@@ -47,11 +49,13 @@ block content
 					
 					tbody
 						td(colspan="2") 합계
+						td#total(colspan="2")
 						
 				div.modal
 					button.order 주문하기
 		
 		div.list
+			h3 메뉴 리스트
 			each vo, index in PR
 				button.list(data-code= vo.p_code) #{vo.p_name}
 			
@@ -60,37 +64,51 @@ block content
 			let button = e.target
 			const p_name = button.innerText;
 			const p_code = button.dataset.code;
-			//- alert(p_code)
 
 			fetch(`/order/insert?p_code=${p_code}`)
 			.then(res=>res.json())
 			.then(result => {
 				if(result) {
-					//- alert("요기니"+JSON.stringify(result))
-					let insert_menu = document.querySelector("tbody") // "table#menu")
+					
+					let insert_menu = document.querySelector("tbody")
 					let add_tr = document.createElement("tr")
+					add_tr.id = 'code';
 					let add_td = document.createElement("td")
 
-					//- add_td.innerText = result.p_name
-					//- add_tr.appendChild(add_td)
-
 					add_tr.innerHTML = "<td data-code=" + result.p_code +">" + result.p_name + "</td>" 
-					add_tr.innerHTML += "<td>" + result.p_price + "</td>"
+					add_tr.innerHTML += "<td id='p_price'>" + result.p_price + "</td>"
 					add_tr.innerHTML += "<td>" + 1 + "</td>"
-					add_tr.innerHTML += "<td>" + result.p_price * 1 + "</td>"
-
-					//- add_td1 = document.createElement("td")
-					//- add_td1.innerText = 
-					//- add_tr.innerHTML = "<td>" + p_name + "</td>"
-					//- add_tr.innerHTML = "<td>" + p_name + "</td>"
+					add_tr.innerHTML += "<td>" + result.p_price+ "</td>"
 
 					insert_menu.appendChild(add_tr);
 
+					total_price();
+					
 				}
-				//- alert("여기니"+result)
 			})
 		})
 
-		document.querySelector("button.order").addEventListener("click", (e)=>{
-			document.location.href = "/";
-		})
+		function total_price() {
+
+			let table = document.querySelector("table.menu_table")
+			let total_price = 0;
+			console.log("total_price", total_price);
+
+			let tr = document.querySelector("#code")
+			console.log("길이!", tr.length);
+
+			document.querySelector("button.order").addEventListener("click", (e) => {
+				let price = document.querySelector("#p_price").innerText;
+				console.log("price!!", price);
+
+				total_price += Number(price);
+				console.log("total_price", total_price);
+
+				total.innerHTML = total_price;
+
+			});
+		}
+
+		//- document.querySelector("button.order").addEventListener("click", (e)=>{
+		//- 	document.location.href = "/";
+		//- })
