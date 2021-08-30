@@ -20,6 +20,7 @@ block content
 
 		button {
 			padding: 5px 30px;
+			cursor: pointer;
 		}
 
 	h2 상품 주문 리스트
@@ -46,10 +47,42 @@ block content
 				button.pay 결제하기
 		
 		div.list
-			button.list= PRODUCT.p_name
-
-	
+				div
+					button.list 김밥
+					button.list 참치
+					button.list 단무지
+				div
+					button.list 라면
+					button.list 만두
+					button.list 냉면
+				div
+					button.list 비빔밥
+					button.list 김치볶음밥
+					button.list 제육볶음
+			
 	script.
-		document.querySelector("button.pay").addEventListener("click", (e)=>{
+		document.querySelector("button.pay").addEventListener("click", (e) =>{
 			document.location.href="/order/pay"
+		})
+
+		document.querySelector("div.list").addEventListener("click", (e) => {
+			let button = e.target
+			if(button.tagName === "BUTTON") {
+				let p_name = button.innerText;
+				fetch("/list", {
+					method: "POST",
+					headers : {
+						'Content-Type' : 'application/json;charset=utf-8'
+					},
+					body :JSON.stringfy({
+						p_name : p_name
+					})
+				})
+				.then(res => res.json())
+				.then(result => {
+					if(result) {
+						console.log("뜨려나!")
+					}
+				})
+			}
 		})

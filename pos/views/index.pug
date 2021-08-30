@@ -25,7 +25,7 @@ block content
 
 			if(td.tagName === "TD") {
 				const o_table = td.innerText
-				fetch("/", {}).then(result=>{
+				fetch("/").then(result => {
 					if(result) {
 						if(confirm("NONE" + "\n" + "주문받기")) {
 							document.location.href = `/order/list?o_table=${o_table}`
