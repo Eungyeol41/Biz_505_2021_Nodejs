@@ -69,12 +69,14 @@ block content
 			.then(res=>res.json())
 			.then(result => {
 				if(result) {
-					
+					// 이렇게 하니까 합계 위 쪽 부분에 메뉴가 하나씩 추가됨.
 					let insert_menu = document.querySelector("tbody")
 					let add_tr = document.createElement("tr")
+					// tr 태그에 code라는 id값 추가
 					add_tr.id = 'code';
 					let add_td = document.createElement("td")
 
+					// tr tag 아래에 td tag를 만들어서 이름, 가격, 수량 등을 추가함.
 					add_tr.innerHTML = "<td data-code=" + result.p_code +">" + result.p_name + "</td>" 
 					add_tr.innerHTML += "<td id='p_price'>" + result.p_price + "</td>"
 					add_tr.innerHTML += "<td>" + 1 + "</td>"
@@ -114,6 +116,7 @@ block content
 					console.log("total_price", total_price);
 				//- }
 
+				// td#total로 만들어놓은 곳에 위에서 계산해놓은 total_price 값 넣어줌.
 				total.innerHTML = total_price;
 
 			});
