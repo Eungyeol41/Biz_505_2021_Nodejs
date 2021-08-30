@@ -5,7 +5,7 @@ block content
 	div.list
 		div.menu
 			h3 #{BBS}
-			table
+			table(data-id= o_table)
 				tr
 					th 메뉴
 					th 단가
@@ -25,10 +25,10 @@ block content
 	button.list 상품 주문 리스트
 
 	script.
-		document.querySelector("button.pay").addEventListener("click", (e)=>{
-			document.location.href = "/order/pay"
-		})
+		//- document.querySelector("button.pay").addEventListener("click", (e)=>{
+		//- 	document.location.href = "/order/pay"
+		//- })
 		document.querySelector("button.list").addEventListener("click", (e)=>{
 			const id = e.target.dataset.id
-			document.location.href = "/order/list"
+			document.location.href = `/order/list?id=${o_table}`
 		})

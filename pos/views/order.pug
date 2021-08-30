@@ -37,7 +37,8 @@ block content
 	div.total
 		div.menu
 			h3 #{o_table}번 테이블
-			h3 고객 ID : #{o_buyer}
+			//- 고객 ID prefix로 연도를 받고 뒤 쪽 숫자는 1씩 증가하게 설계하려고 했음.
+			//- h3 고객 ID : #{o_buyer}
 			
 			div.menu_list
 				table.menu_table
@@ -56,6 +57,7 @@ block content
 		
 		div.list
 			h3 메뉴 리스트
+			//- 기존에 tbl_products에서 가져온 것이기 때문에 PR.tbl_products와 같은 코드 적을 필요가 없다!
 			each vo, index in PR
 				button.list(data-code= vo.p_code) #{vo.p_name}
 			
