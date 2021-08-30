@@ -12,6 +12,11 @@ h2 {
   width: 70%;
 }
 
+h3 {
+  text-align: center;
+  padding: 5px;
+}
+
 table.gimbap {
   padding: 5px;
   margin: 0 auto;
@@ -26,4 +31,16 @@ td.gimbap {
 td.gimbap {
   padding: 50px;
   margin: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  width: 70%;
+  margin: 10px auto;
+  background-color: rgba(255, 182, 193, 0.514);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

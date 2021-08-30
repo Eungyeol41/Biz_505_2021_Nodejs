@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     o_pcode: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.STRING(5),
       allowNull: false,
     },
     o_price: {

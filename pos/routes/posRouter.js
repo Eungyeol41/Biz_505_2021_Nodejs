@@ -9,20 +9,29 @@ router.get("/detail", (req, res) => {
 
 router.get("/list", (req, res) => {
   const { o_table } = req.query;
-  const { table } = req.body;
 
-  tbl_products.findAll().then((result) => {
-    res.render("order", { PR: { table }, o_table: o_table });
+  tbl_products.findAndCountAll().then((result) => {
+    res.render("order", { PR: result.rows, o_table: o_table });
   });
 });
 router.post("/list", (req, res) => {
-  console.log("req의 body는?", req.body);
-  const p_name = req.body.p_name;
-  console.log("p_name", p_name);
+  //   const p_name = req.body.p_name;
+  //   console.log("p_name", p_name);
+  //   const { table } = req.body;
+  //   tbl_orders.insert({ table }).then((result) => {
+  //     res.render("order", { table });
+  //   });
+});
 
-  const { table } = req.body;
-  tbl_orders.insert({ table }).then((result) => {
-    res.render("order", { table });
+router.get("/insert", (req, res) => {
+  //   console.log("없다구");
+  //   console.log("req의 body는?", req.query.p_code);
+  let { p_code } = req.query;
+  tbl_products.findByPk(p_code).then((result) => {
+    // console.log("나오니", result.dataValues);
+    // console.log("이거는", result.p_name);
+    // return result;
+    res.json(result);
   });
 });
 

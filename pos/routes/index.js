@@ -5,7 +5,9 @@ const { tbl_orders } = require("../models/index");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  tbl_orders.findAndCountAll().then((result) => {
+    res.render("index", { OR: result.rows });
+  });
 });
 
 module.exports = router;

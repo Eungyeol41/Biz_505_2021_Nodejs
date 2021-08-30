@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     "tbl_products",
     {
       p_code: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(5),
         primaryKey: true,
       },
       p_name: {
