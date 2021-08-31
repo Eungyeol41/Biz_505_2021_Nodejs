@@ -12,16 +12,8 @@ router.get("/order/:table_id", async (req, res) => {
   // 비동기 방식으로 사용할 테니까 이게 끝날 때까지 다른 것 하지 마라!!
   // p_name 칼럼을 기준으로 오름차순 정렬
   const MENU = await tbl_product.findAll().then({ order: ["p_name", "ASC"] });
-  // .then((result) => {
-  //   res.render("order_view", { table_id, MENU: result });
-  // });
 
-  const order_list = await tbl_table_orders.findAll({ where: { to_table_id: table_id } });
-  res.render("order_view", { table_id, MENU, order_list });
-
-  //   res.send(table_id);
-  //   res.render("order_view", { table_id: table_id });
-  //   res.render("order_view", { table_id });
+  res.render("order_view", { table_id, MENU });
 });
 
 // table_id와 menu_id가 Web으로부터 전달되어 왔다
