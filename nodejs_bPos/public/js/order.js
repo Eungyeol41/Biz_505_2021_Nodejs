@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 주문서 화면이 열릴 때 서버로부터 table에 주문내역이 있으면 가져와서 보여라
   fetch(`/pos/getorder/${table_id}`)
-    .then((res) => res.json)
+    .then((res) => res.json())
     .then((result) => {
       add_order_list(result);
     });
