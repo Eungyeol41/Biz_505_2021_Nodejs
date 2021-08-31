@@ -63,3 +63,7 @@ npm install express
 npm install http-errors
 npm install morgan
 npm install pug
+
+### 3. sequelize
+
+sequelize init
