@@ -29,8 +29,13 @@ block content
 			cursor: pointer;
 		}
 
+		button.list {
+			width: 80%;
+		}
+
 		div.list {
 			width: 30%;
+			text-align: center;
 		}
 
 	h2 상품 주문 리스트
@@ -80,7 +85,7 @@ block content
 
 					// tr tag 아래에 td tag를 만들어서 이름, 가격, 수량 등을 추가함.
 					add_tr.innerHTML = "<td data-code=" + result.p_code +">" + result.p_name + "</td>" 
-					add_tr.innerHTML += "<td id='p_price'>" + result.p_price + "</td>"
+					add_tr.innerHTML += "<td class='p_price'>" + result.p_price + "</td>"
 					add_tr.innerHTML += "<td>" + 1 + "</td>"
 					add_tr.innerHTML += "<td>" + result.p_price+ "</td>"
 
@@ -107,9 +112,9 @@ block content
 			document.querySelector("button.order").addEventListener("click", (e) => {
 
 				// 아래의 코드는 length 값이 undefined로 떠서 임의로 i의 범위를 지정해서 코드 확인함.
-				//- for(let i = 1; i < 5; i++) {
+				//- for(let i = 0; i < 3; i++) {
 					// for문 돌렸을 때나 안 돌렸을 때 모두 처음의 값만 추가됨..
-					let price = document.querySelector("#p_price").innerText;
+					let price = document.querySelectorAll(".p_price").innerText;
 					console.log("price!!", price);
 
 					// for문 돌리면 price의 첫 번째 값만 계속해서 추가되고
