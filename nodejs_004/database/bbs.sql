@@ -17,5 +17,3 @@ DESC tbl_replies;
 DROP TABLE tbl_replies;
 
 SELECT * FROM tbl_replies;
-
-DROP TABLE tbl_products;
