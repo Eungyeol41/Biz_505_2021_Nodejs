@@ -8,12 +8,12 @@
 
 - 설정되어있는 dependency의 모든 버전번호를 \*로 변경
 - dependency update  
-  npm install cookie-parser
-  npm install debug
-  npm install express
-  npm install http-errors
-  npm install morgan
-  npm install pug
+  npm install cookie-parser  
+  npm install debug  
+  npm install express  
+  npm install http-errors  
+  npm install morgan  
+  npm install pug  
   npm install
 
 ## 우리동네 김밥천국 프로젝트 요구사항
