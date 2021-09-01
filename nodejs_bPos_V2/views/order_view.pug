@@ -11,7 +11,7 @@ block content
 			border: 1px solid green;
 			margin: 10px;
 			padding: 10px;
-			background-color: #ddd;
+			background-color: #eee;
 		}
 		article.order_list {
 			flex: 1;
@@ -105,7 +105,12 @@ block content
 			flex-flow: column;
 			justify-content: center;
 			align-items: center;
-			
+			color: yellow;
+		}
+
+		div.order_list.pay_box button {
+			padding: 5px;
+			margin: 5px;
 		}
 
 	div.modal
@@ -117,4 +122,4 @@ block content
 				span.pay_total
 			h2 결제 종류 : 
 				span.pay_qty
-			button 확인
+			button.btn_pay_complete 확인

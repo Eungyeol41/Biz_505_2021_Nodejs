@@ -64,10 +64,17 @@ router.get("/order/:table_id/input/:menu_id", (req, res) => {
 //		현재 table에서 주문리스트가 있으면 화면에 출력하기 위한 Request 처리
 router.get("/getorder/:table_id", (req, res) => {
   const table_id = req.params.table_id;
+  //   const Op = Sequelize.Op;
 
+  /**
+   * 주문이 진행중인 상태에서는 orders들의 to_pay 칼럼이 null이고 결제가 완료된 상태는 to_pay에 문자열 P가 담기게 되므로
+   * 	table layout에서 table을 선택하고 주문으로 들어오면 해당 table_id의 데이터들 중에서 to_pay가 null인 값만
+   * 	SELECT하여 보여주기
+   */
   tbl_table_orders
     .findAll({
-      where: { to_table_id: table_id },
+      //   where: { to_table_id: table_id, to_pay: { [Op.is]: null }} ,
+      where: { to_table_id: table_id, to_pay: null },
       include: [{ model: tbl_product, require: false }],
     })
     .then((result) => {
@@ -82,6 +89,23 @@ router.get("/order/:order_seq/delete", (req, res) => {
     .destroy({ where: { to_seq: order_seq } })
     .then(() => {
       res.send("OK!");
+    })
+    .catch(() => {
+      res.send("FAIL");
+    });
+});
+
+router.get("/paycomplete/:table_id", (req, res) => {
+  const table_id = req.params.table_id;
+  // table_id값을 받아와서 table을 update 한다.
+  tbl_table_orders
+    .update(
+      // 주문 시에 결제가 완료된 표식으로 to_pay 칼럼에 문자열 P 업데이트
+      { to_pay: "P" },
+      { where: { to_table_id: table_id } }
+    )
+    .then(() => {
+      res.send("OK");
     })
     .catch(() => {
       res.send("FAIL");
