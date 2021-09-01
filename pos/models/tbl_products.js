@@ -19,5 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     { timestamps: false } // createdAt, updatedAt 만들지 않기
   );
 
+  product.associate = (models) => {
+    product.hasMany(models.tbl_orders, { foreignKey: "o_pcode" });
+  };
+
   return product;
 };
