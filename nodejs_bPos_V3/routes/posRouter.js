@@ -28,7 +28,7 @@ router.get("/order/:table_id", async (req, res) => {
  * 		})
  * 	JS에서는 이러한 상황을 'callback hell'이라고 한다.
  *
- * async await
+ * async, await를 사용해서 해결한다.
  */
 router.get("/order/:table_id/input/:menu_id", async (req, res) => {
   const table_id = req.params.table_id;
