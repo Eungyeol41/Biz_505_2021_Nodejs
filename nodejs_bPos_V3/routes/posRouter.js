@@ -3,8 +3,6 @@ const router = express.Router();
 const moment = require("moment");
 
 const { tbl_product, tbl_table_orders } = require("../models/index");
-// 'localhost:3000/pos/order/3' 으로 URL 전송되어오면 숫자 3이 변수 table_id에 담겨서 오게 된다.
-// 이 table_id는 req.params.table_id를 getter하여 값을 확인할 수 있다.
 router.get("/order/:table_id", async (req, res) => {
   const table_id = req.params.table_id;
   console.log("table_id", table_id);
@@ -16,9 +14,6 @@ router.get("/order/:table_id", async (req, res) => {
   res.render("order_view", { table_id, MENU });
 });
 
-// table_id와 menu_id가 Web으로부터 전달되어 왔다
-// 현재 table에 손님이 있고 메뉴를 주문하기 시작했다.
-// let menu_list = [];
 /**
  * promise
  * 	지금까지 사용된 JS 코드는 대부분이 비동기 방식
