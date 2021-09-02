@@ -31,6 +31,10 @@ td.gimbap {
 td.gimbap {
   padding: 50px;
   margin: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  color: coral;
 }
 
 footer {
