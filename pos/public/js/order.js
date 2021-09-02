@@ -1,17 +1,3 @@
-const input_order_list = (list) => {
-  const order_box = document.querySelector("table.menu_table");
-  let order_list = document.querySelectorAll("table.order_list tbody tr");
-  if (order_list) {
-    order_list.forEach((tag) => {
-      order_box.removeChild(tag);
-    });
-  }
-
-  const total_pay = { count: 0, total: 0 };
-
-  const orders = list.map((order, list) => {});
-};
-
 document.querySelector("div.list").addEventListener("click", (e) => {
   let button = e.target;
   const p_name = button.innerText;

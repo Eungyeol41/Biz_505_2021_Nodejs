@@ -129,14 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
     order_table.addEventListener("click", (e) => {
       const target = e.target;
 
-      if (target.tagName === "DIV" && target.innerText === "X") {
+      if (target.tagName === "TD" && target.innerText === "X") {
         const order_seq = target.dataset.order_seq;
-        // alert(order_seq);
 
         if (confirm("주문 메뉴를 삭제할까요?")) {
           fetch(`/pos/order/${order_seq}/delete`)
-            // router에서 res.send()로 문자열을 보냈기 때문에 res.text() 함수를 사용
-            // .then((res) => { return res.text() })
             .then((res) => res.text())
             .then((result) => {
               if (result === "OK!") {

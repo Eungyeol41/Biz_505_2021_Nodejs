@@ -88,7 +88,7 @@ router.get("/getorder/:table_id/getlist", (req, res) => {
    */
   tbl_table_orders
     .findAll({
-      //   where: { to_table_id: table_id, to_pay: { [Op.is]: null }} ,
+      //   where: { to_table_id: table_id, to_pay: { [Op.eq]: null }} ,
       where: { to_table_id: table_id, to_pay: null },
       include: [{ model: tbl_product, require: false }],
     })
