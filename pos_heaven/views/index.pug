@@ -27,14 +27,19 @@ block content
 		div.table:hover {
 			box-shadow: 2px 2px 2px black;
 		}
-
-	-for(let i = 0; i < 12; i++)
-		div.table !{i + 1}번 테이블
 	
-//-	each vo, index in TABLE
-//-		if(table_order_count > 0)
-//-			div.table.order_in !{table.table_name}
-//-				span (식사 중)
-//-		
-//-		else
-//-			div.table !{table.table_name}
+	each vo, index in TABLE
+		if(table_order_count > 0)
+			div.table.order_in(data-table_id= table_id) !{table.table_name}
+				span (식사 중)
+		
+		else
+			div.table(data-table_id= table_id) !{table.table_name}
+	
+	script.
+		document.querySelector("div.table").addEventListener("click", (e) => {
+			const table_id = e.target.dataset.table_id;
+			alert(table_id)
+
+			document.location.href = `/pos/order/${table_id}`
+		})
