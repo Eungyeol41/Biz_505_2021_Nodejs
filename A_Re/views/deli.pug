@@ -1,0 +1,107 @@
+extends layout
+
+block content
+	style.
+		div.table_list {
+			display: flex;
+		}
+
+		section.search {
+			flex: 1;
+			text-align: center;
+			border: 1px solid lightpink;
+		}
+		article {
+			width: 90%;
+			border: 1px solid lightpink;
+			margin: 5px auto;
+		}
+
+		h3.select {
+			color: red;
+			background-color: aquamarine;
+		}
+
+		div.button {
+			flex-flow: column;
+		}
+
+		section.table {
+			flex: 2;
+			text-align: center;
+		}
+
+		table.ate_list {
+			text-align: center;
+			border: 1px solid lightpink;
+		}
+
+	div.table_list
+		section.search
+			article
+				h3 질문을...
+				h4 저희는 뭐 선택하느냐에 따라서 질문이 달라지는 게 아니쟈나요...?
+				h4 그래서 음.... 원래 생각했던 것처럼 하나 선택하면 밑에 새로 뜨게 할까요..?
+				h4 아니면 그냥 처음부터 질문을 다 보여줄까요...??
+				h4 처음부터 보여주면 좀 너무 설문지같아서 보기 싫으려낫.... ㅎㅎㅎㅎ
+				br
+				
+				h3.select 아래가 한번에 다 보여주는 거..
+				div.no1
+					h2 1. 원하시는 원...자재..? 선택하세염
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+				br
+				div.no2
+					h2 2. 지역 선택하기 (질문은 형식이니까... 나중에 고치는걸로 하죠..... ㅋㅋㅋ)
+					button 광주
+					button 광주
+					button 광주
+					button 광주
+				br
+				div.no3
+					h2 3. 원하시는 원...자재..? 선택하세염
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+				br
+				br
+				h3.select 아래가 질문 하나씩 늘려서 보여주는 거..
+				div.reno1
+					h2 1. 원하시는 원...자재..? 선택하세염
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+					button 플라스틱
+				br
+
+		section.table
+			h3 여기서 택배가 가능한 공방리스트를 바로 보여주고
+			table.ate_list
+				
+				thead
+					tr
+						th No.
+						th 공방명
+						th 상세주소
+						th 전화번호
+						th 홈페이지
+				tbody
+					-for(let j = 0; j < 20; j++)
+						tr
+							-for(let i = 0; i < 5; i++)
+								td 일단 뭐든 적어놓으려고 했음 ㅇ ㅁㅇ
+				//- each vo, index in DELIVERY
+				//- tr
+					td= index
+					td= vo.at_name
+					td= vo.at_addr
+					td= vo.at_tel
+					td= vo.at_page
+

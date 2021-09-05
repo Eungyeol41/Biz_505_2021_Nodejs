@@ -1,0 +1,60 @@
+extends layout
+
+block content
+	script(src="https://kit.fontawesome.com/bf824ab718.js" crossorigin="anonymous")
+	style.
+		div.total {
+			display: flex;
+		}
+
+		div.location, div.direct, div.delivery {
+			flex: 1;
+			border: 1px solid;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		div.icon {
+			margin: 15px;
+			padding: 5px;
+		}
+
+		i {
+			margin: 0 auto;
+		}
+
+	div.total
+		div.location
+			h2 지역
+				div.icon
+					i(class="fas fa-globe-asia fa-5x", style="color: green")
+		div.direct
+			h2 직접 가기
+				div.icon
+					i(class="fas fa-shoe-prints fa-4x", style="color: beige") &nbsp
+					i(class="fas fa-laptop-house fa-5x", style="color: cadetblue")
+		div.delivery
+			h2 택배
+				div.icon
+					i(class="fas fa-truck-loading fa-5x", style="color: chocolate")
+	
+	script.
+		document.querySelector("div.total").addEventListener("click", (e) => {
+
+			const target = e.target
+
+			if(target.tagName === "DIV" && target.className.includes("location")) {
+					//- alert("지역")
+					document.location.href = "/loc"
+			}
+			if(target.tagName === "DIV" && target.className.includes("direct")) {
+					//- alert("직접")
+					document.location.href = "/go"
+			}
+			if(target.tagName === "DIV" && target.className.includes("delivery")) {
+					//- alert("택배")
+					document.location.href = "/deli"
+			}
+		})
