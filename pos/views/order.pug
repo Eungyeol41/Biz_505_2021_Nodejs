@@ -63,11 +63,12 @@ block content
 			
 			div.menu_list
 				table.menu_table
-					tr.menu_header
-						th 메뉴
-						th 단가
-						th 수량
-						th 금액
+					thead
+						tr.menu_header
+							th 메뉴
+							th 단가
+							th 수량
+							th 금액
 					
 					tbody
 						td(colspan="2") 합계
@@ -75,7 +76,7 @@ block content
 						
 				div.modal
 					button.order.home 처음으로
-					button.order 주문하기
+					button.order.pay 주문하기
 		
 		div.list
 			h2.menu_list 메뉴 리스트
@@ -83,6 +84,4 @@ block content
 				div.menulist
 					button.menu(data-menu_code= vo.p_code) #{vo.p_name} : #{vo.p_price}
 	
-	script(src="/js/order.js")
-	
-	
+	script(src="/js/order_insert.js")

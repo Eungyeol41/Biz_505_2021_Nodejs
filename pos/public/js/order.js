@@ -12,7 +12,8 @@ document.querySelector("div.menulist").addEventListener("click", (e) => {
         add_tr.id = "code";
         let add_td = document.createElement("td");
 
-        add_tr.innerHTML = "<td data-code=" + result.p_code + ">" + result.p_name + "</td>";
+        add_tr.innerHTML =
+          "<td data-code=" + result.p_code + ">" + result.p_name + "</td>";
         add_tr.innerHTML += "<td class='p_price'>" + result.p_price + "</td>";
         add_tr.innerHTML += "<td> 1 </td>";
         add_tr.innerHTML += "<td>" + result.p_price + "</td>";
@@ -32,7 +33,7 @@ function total_price() {
   let tr = document.querySelector("#code");
 
   // 주문하기 버튼 클릭
-  document.querySelector("button.order").addEventListener("click", (e) => {
+  document.querySelector("button.pay").addEventListener("click", (e) => {
     let price = document.querySelector(".p_price").innerText;
     console.log("price!!", price);
 
@@ -42,3 +43,7 @@ function total_price() {
     total.innerHTML = total_price;
   });
 }
+
+document.querySelector("button.home").addEventListener("click", () => {
+  document.location.href = "/";
+});

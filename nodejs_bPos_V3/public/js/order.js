@@ -175,22 +175,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("div.modal").style.display = "none";
   });
 
-  document.querySelector("button.btn_pay_complete").addEventListener("click", () => {
-    if (confirm("결제를 진행할까요?")) {
-      // server로 현재 orderList에 담긴 데이터를 결제완료로 처리하도록 요청하기
-      // 현재 table_id 값을 getter
-      const article_order = document.querySelector("article.order_list");
-      const table_id = article_order.dataset.table_id;
+  document
+    .querySelector("button.btn_pay_complete")
+    .addEventListener("click", () => {
+      if (confirm("결제를 진행할까요?")) {
+        // server로 현재 orderList에 담긴 데이터를 결제완료로 처리하도록 요청하기
+        // 현재 table_id 값을 getter
+        const article_order = document.querySelector("article.order_list");
+        const table_id = article_order.dataset.table_id;
 
-      // fetch로 서버에 결제 완료 요청
-      fetch(`/pos/paycomplete/${table_id}`)
-        .then((res) => res.text())
-        .then((result) => {
-          if (result === "OK") {
-            document.querySelector("div.modal").style.display = "none";
-            getOrders(table_id);
-          }
-        });
-    }
-  });
+        // fetch로 서버에 결제 완료 요청
+        fetch(`/pos/paycomplete/${table_id}`)
+          .then((res) => res.text())
+          .then((result) => {
+            if (result === "OK") {
+              document.querySelector("div.modal").style.display = "none";
+              getOrders(table_id);
+            }
+          });
+      }
+    });
 });
