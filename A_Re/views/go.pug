@@ -1,0 +1,67 @@
+extends layout
+
+block content
+	style.
+		div.table_list {
+			display: flex;
+		}
+
+		section.search {
+			flex: 1;
+			text-align: center;
+			border: 1px solid lightpink;
+		}
+		article {
+			width: 90%;
+			border: 1px solid lightpink;
+			margin: 5px auto;
+			display: flex;
+		}
+
+		div.category {
+			border: 1px solid chocolate;
+			flex-wrap: nowrap;
+		}
+
+		section.table {
+			flex: 2;
+			text-align: center;
+		}
+
+		table.ate_list {
+			text-align: center;
+			border: 1px solid lightpink;
+		}
+
+	div.table_list
+		section.search
+			article
+				div
+					div.category 플라스틱
+					div.category 플라스틱
+					div.category 플라스틱
+					div.category 플라스틱
+					div.category 플라스틱
+				div
+					div.category 플라스틱
+					div.category 플라스틱
+					div.category 플라스틱
+					div.category 플라스틱
+					div.category 플라스틱
+
+		section.table
+			h3 여기서 직접 갈 수 있는 공방리스트를 바로 보여주고
+			table.ate_list
+				
+				thead
+					tr
+						th No.
+						th 공방명
+						th 상세주소
+						th 전화번호
+						th 홈페이지
+				tbody
+					-for(let j = 0; j < 20; j++)
+						tr
+							-for(let i = 0; i < 5; i++)
+								td 이제 왔는데 졸림... ㅋ
