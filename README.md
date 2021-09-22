@@ -15,7 +15,7 @@
 
 - cmd 창에서 관리자로 : npm install -g 패키지명
 - nodemon : nodejs 코드를 작성하고 저장을 하면 자동으로 재 실행하여 결과를 확인할수 있도록 도와주는 plugin
-- express-generator : nodejs + express 프레임워크 서버 어플리케이션을 작성할 때 사용하는 plung
+- express-generator : nodejs + express 프레임워크 서버 어플리케이션을 작성할 때 사용하는 plu
 - create-react-app : React 기반의 프론트 프로젝트를 작성할 때 사용하는 plugin
 - yarn : React project를 만들어서 개발을 할때 npm을 대신하여 사용하는 package 관리자
 
